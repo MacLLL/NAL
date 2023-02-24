@@ -4,7 +4,7 @@ import torch.nn.functional as F
 if torch.cuda.is_available():
     torch.backends.cudnn.benchmark = True
     if torch.cuda.device_count() > 1:
-        device = torch.device('cuda:1')
+        device = torch.device('cuda:0')
     else:
         device = torch.device('cuda')
 else:
