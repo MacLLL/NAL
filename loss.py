@@ -15,8 +15,8 @@ class NAL(torch.nn.Module):
     def __init__(self, labels, num_classes, es=60, momentum=0.9, beta=0.1, threshold_update=0.0):
         super(NAL, self).__init__()
         self.num_classes = num_classes
-        # self.soft_labels = torch.zeros(labels.shape[0], num_classes, dtype=torch.float).cuda(non_blocking=True)
-        self.soft_labels = torch.zeros(labels.shape[0], num_classes, dtype=torch.float).to(1)
+        self.soft_labels = torch.zeros(labels.shape[0], num_classes, dtype=torch.float).cuda(non_blocking=True)
+#         self.soft_labels = torch.zeros(labels.shape[0], num_classes, dtype=torch.float).to(0)
         self.soft_labels[torch.arange(labels.shape[0]), labels] = 1
         self.es = es
         self.momentum = momentum
